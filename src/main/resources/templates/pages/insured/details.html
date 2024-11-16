@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout.html :: head}">
+    <meta charset="UTF-8">
+    <title>Detail Pojištění</title>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+<article>
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <div class="col-lg-4 mt-3">
+                <img src="/images/profile-picture.png" alt="Profile Picture" class="images">
+            </div>
+            <div class="col-lg-4">
+                <h4 class="mb-2 mt-5">Jméno:</h4>
+                <h5 th:text="${insured.firstName}"></h5>
+            </div>
+            <div class="col-lg-4">
+                <h4 class="mb-4 mt-5">Příjmení:</h4>
+                <h5 th:text="${insured.surname}"></h5>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <h4 class="mb-3 mt-5">Druh pojišťění:</h4>
+                <h5 th:text="${insured.typeOfInsurance}"></h5>
+            </div>
+            <div class="col-lg-4">
+                <h4 class="mb-3 mt-5">Částka:</h4>
+                <h5 th:text="${insured.amount}"></h5>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-lg-2 ">
+                <p></p>
+            </div>
+            <div class="col-lg-4 mt-4">
+                <a type="button" class="btn btn-dark" th:href="@{/insured/edit/{id}(id=${insuredId})}">Upravit</a>
+            </div>
+            <div class="col-lg-4 mt-4">
+                <a type="button" class="btn btn-dark" th:href="@{'/insured/delete/' + ${insured.insuredId}}">Odstranit</a>
+            </div>
+            <div class="col-lg-2">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+</article>
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

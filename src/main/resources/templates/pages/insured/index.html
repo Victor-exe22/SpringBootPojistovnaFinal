@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/layout.html :: head}">
+    <meta charset="UTF-8">
+    <title>Pojišťovna</title>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+<article>
+    <h3>
+        Pojištěnci
+    </h3>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <p></p>
+            </div>
+            <div class="table-responsive-xl">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Jméno</th>
+                        <th>Příjmení</th>
+                        <th>Pojištění</th>
+                        <th>Částka</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="insured : ${insured}"> 
+                        <td>
+                            <a th:href="@{/insured/details/{insuredId}(insuredId=${insured.insuredId})}"
+                               style="display: block; width: 100%; height: 100%; text-decoration: none; color: inherit;">
+                                <span th:text="${insured.firstName}"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a th:href="@{/insured/details/{insuredId}(insuredId=${insured.insuredId})}"
+                               style="display: block; width: 100%; height: 100%; text-decoration: none; color: inherit;">
+                                <span th:text="${insured.surname}"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a th:href="@{/insured/details/{insuredId}(insuredId=${insured.insuredId})}"
+                               style="display: block; width: 100%; height: 100%; text-decoration: none; color: inherit;">
+                                <span th:text="${insured.typeOfInsurance}"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a th:href="@{/insured/details/{insuredId}(insuredId=${insured.insuredId})}"
+                               style="display: block; width: 100%; height: 100%; text-decoration: none; color: inherit;">
+                                <span th:text="${insured.amount}"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-3">
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row g-3 ">
+            <div class="col-lg-5">
+                <p></p>
+            </div>
+            <div sec:authorize="hasRole('ADMIN')" class="col-lg-2 text-center">
+                <a type="button" class="btn btn-dark" th:href="@{/insured/create}">Přidat</a>
+            </div>
+            <div class="col-lg-5">
+                <p></p>
+            </div>
+        </div>
+    </div>
+</article>
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

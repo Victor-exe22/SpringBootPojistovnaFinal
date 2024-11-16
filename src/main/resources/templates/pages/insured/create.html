@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head  th:replace="~{fragments/layout.html :: head}">
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+    <article>
+        <h3>Vytvoření pojišťěného</h3>
+        <div>
+            <section>
+                <form class="d-flex flex-column gap-2"
+                      method="post"
+                      th:action="@{/insured/create}"
+                      th:object="${insuredDTO}">
+                    <div class="form-group">
+                        <label for="firstName" class="control-label">Jméno</label>
+                        <input id="firstName" th:field="*{firstName}" class="form-control"/>
+                        <small class="text-danger" th:errors="*{firstName}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname" class="control-label">Příjmení</label>
+                        <textarea id="surname" class="form-control" th:field="*{surname}"></textarea>
+                        <small class="text-danger" th:errors="*{surname}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="typeOfInsurance" class="control-label">Typ pojišťění</label>
+                        <textarea id="typeOfInsurance" class="form-control" th:field="*{typeOfInsurance}"></textarea>
+                        <small class="text-danger" th:errors="*{typeOfInsurance}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount" class="control-label">Částka</label>
+                        <input id="amount" th:field="*{amount}" type="number" class="form-control"/>
+                        <small class="text-danger" th:errors="*{amount}"></small>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-dark mb-3">Uložit</button>
+                    </div>
+                </form>
+                <a type="button" class="btn btn-dark" th:href="@{/insured}">Zpět na seznam</a>
+            </section>
+        </div>
+    </article>
+
+<footer th:fragment="footer">
+    <p>pata</p>
+</footer>
+</body>
+</html>

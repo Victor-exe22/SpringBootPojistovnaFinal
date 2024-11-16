@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{fragments/layout.html :: head}"></head>
+
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<article>
+    <h3 class="text=black mb-3">Úprava pojištění</h3>
+    <div>
+        <section>
+            <form class="d-flex flex-column gap-2"
+                  method="post"
+                  th:action="@{'/insurance/edit/' + ${insuranceId}}"
+                  th:object="${insuranceDTO}">
+                <div class="form-group">
+                    <label for="typeOfInsurance" class="control-label">Druh pojištění</label>
+                    <input id="typeOfInsurance" th:field="*{typeOfInsurance}" class="form-control"/>
+                    <small class="text-danger" th:if="${#fields.hasErrors('typeOfInsurance')}" th:errors="*{typeOfInsurance}"></small>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-dark mb-3">Uložit</button>
+                </div>
+
+            </form>
+            <a class="btn btn-dark" th:href="@{/insurance}">Zpět na seznam</a>
+        </section>
+    </div>
+</article>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+
+</html>

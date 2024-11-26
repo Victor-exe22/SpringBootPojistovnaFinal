@@ -7,7 +7,7 @@ public class InsuredEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "insured_id") // Explicitní mapování na "insured_id" v tabulce
+    @Column(name = "insured_id")
     private long insuredId;
 
     @Column(name = "first_name", nullable = false)

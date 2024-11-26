@@ -27,7 +27,7 @@ public class AccountController {
     }
 
     @GetMapping("register")
-    public String renderRegister(@ModelAttribute UserDTO userDTO) { // <-- Zde jsme přidali nový parametr
+    public String renderRegister(@ModelAttribute UserDTO userDTO) {
         return "/pages/account/register";
     }
 

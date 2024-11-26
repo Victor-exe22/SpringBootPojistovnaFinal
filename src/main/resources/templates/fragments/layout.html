@@ -4,41 +4,72 @@
 
     <link rel="stylesheet" th:href="@{/styles/style1.css}" type="text/css"/>
     <link rel="stylesheet" th:href="@{/styles/bootstrap.min.css}" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <header  th:fragment="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-1 justify-content-start">
-                    <h2>Pojistovna</h2>
-                </div>
-                <div class="col-lg-10">
-                    <nav class="nav justify-content-center lead">
-                        <li><a sec:authorize="hasRole('ADMIN')" class="nav-link text-white" th:href="@{/insured}">Pojištěnci</a></li>
-                        <li><a class="nav-link text-white" th:href="@{/insurance}">Pojištění</a></li>
-                        <li><a class="nav-link text-white" th:href="@{/contact}">Kontakt</a></li>
-                        <li sec:authorize="isAnonymous()"><a class="nav-link text-white" th:href="@{/account/login}">Přihlásit se</a></li>
-                        <li sec:authorize="isAnonymous()"><a class="nav-link text-white" th:href="@{/account/register}">Registrovat</a></li>
-                        <li>
-                            <form method="post" th:action="@{/account/logout}">
-                                <button class="nav-link text-white nav-button" sec:authorize="isAuthenticated()">Odhlásit se</button>
-                            </form>
-                        </li>
-                    </nav>
-                </div>
-                <div sec:authorize="hasRole('ADMIN')" class=" col-lg-1">
-                    <h2>ADMIN</h2>
-                </div>
-            </div>
-        </div>
+        <h3>Pojistovna</h3>
+            <nav>
+                <ul class="sidebar">
+                    <li onclick=hideSidebar() ><a href="#" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                    <li><a sec:authorize="hasRole('ADMIN')" class="nav-link text-white" th:href="@{/insured}">Pojištěnci</a></li>
+                    <li><a class="nav-link text-white" th:href="@{/insurance}">Pojištění</a></li>
+                    <li><a class="nav-link text-white" th:href="@{/contact}">Kontakt</a></li>
+                    <li sec:authorize="isAnonymous()"><a class="nav-link text-white" th:href="@{/account/login}">Přihlásit se</a></li>
+                    <li sec:authorize="isAnonymous()"><a class="nav-link text-white" th:href="@{/account/register}">Registrovat</a></li>
+                    <li>
+                        <form method="post" th:action="@{/account/logout}">
+                            <button class="nav-button" sec:authorize="isAuthenticated()">Odhlásit se</button>
+                        </form>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="hideOnMobile"><a sec:authorize="hasRole('ADMIN')"  th:href="@{/insured}"><h5>Pojištěnci</h5></a></li>
+                    <li class="hideOnMobile"><a  th:href="@{/insurance}"><h5>Pojištění</h5></a></li>
+                    <li class="hideOnMobile"><a  th:href="@{/contact}"><h5>Kontakt</h5></a></li>
+                    <li class="hideOnMobile" sec:authorize="isAnonymous()"><a  th:href="@{/account/login}"><h5>Přihlásit se</h5></a></li>
+                    <li class="hideOnMobile" sec:authorize="isAnonymous()"><a  th:href="@{/account/register}"><h5>Registrovat</h5></a></li>
+                    <li class="hideOnMobile">
+                        <form method="post" th:action="@{/account/logout}">
+                            <button class="nav-button" sec:authorize="isAuthenticated()"><h5>Odhlásit se</h5></button>
+                        </form>
+                    </li>
+                    <li class="menu-button " onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </ul>
+            </nav>
+        <script>
+            function showSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+            }
+
+            function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+
+            }
+        </script>
     </header>
 
 
 
     <footer th:fragment="footer">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-5">
+
+                </div>
+                <div sec:authorize="hasRole('ADMIN')" class="col-2 d-flex align-items-center">
+                    <h3>ADMIN</h3>
+                </div>
+                <div class="col-5">
+
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

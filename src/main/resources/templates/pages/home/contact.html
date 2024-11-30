@@ -4,34 +4,32 @@
     <meta charset="UTF-8">
     <title>Pojišťovna</title>
     <script src="http://localhost:35729/livereload.js"></script>
-
 </head>
 <body>
-<header th:replace="~{fragments/layout.html :: header}"></header>
-    <article>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <h3>Kontakt</h3>
-                </div>
-                <div class="col-6"></div>
-            </div>
-        </div>
-
-        <div class="container-fluid mt-5">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h4>telefonní číslo</h4>
-                    <p>+420 7xx xxx xxx</p>
-                </div>
-                <div class="col-lg-6">
-                    <h4>email:</h4>
-                    <p>x@x.com</p>
+    <header th:replace="~{fragments/layout.html :: header}"></header>
+        <article>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Kontakt</h3>
+                    </div>
+                    <div class="col-6"></div>
                 </div>
             </div>
-        </div>
-    </article>
 
-<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+            <div class="container-fluid mt-5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4>telefonní číslo</h4>
+                        <p>+420 7xx xxx xxx</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>e-mail:</h4>
+                        <p>x@x.com</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>
 </html>

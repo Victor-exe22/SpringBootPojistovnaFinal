@@ -11,7 +11,7 @@
 </head>
 <body>
     <header  th:fragment="header">
-        <h3>Pojistovna</h3>
+        <h3>Pojišťovna</h3>
             <nav>
                 <ul class="sidebar">
                     <li onclick=hideSidebar() ><a href="#" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
@@ -43,22 +43,8 @@
         <script src="/scripts/index.js"></script>
     </header>
 
-
-
     <footer th:fragment="footer">
-        <div class="container-fluid">
-            <div class="row ">
-                <div class="col-5">
-
-                </div>
-                <div sec:authorize="hasRole('ADMIN')" class="col-2 d-flex align-items-center">
-                    <h3>ADMIN</h3>
-                </div>
-                <div class="col-5">
-
-                </div>
-            </div>
-        </div>
+        <h3 sec:authorize="hasRole('ADMIN')">ADMIN</h3>
     </footer>
 </body>
 </html>

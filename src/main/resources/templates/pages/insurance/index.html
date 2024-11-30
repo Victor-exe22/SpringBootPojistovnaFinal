@@ -5,60 +5,60 @@
     <title>Pojišťovna</title>
 </head>
 <body>
-<header th:replace="~{fragments/layout.html :: header}"></header>
-<article>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-6">
-                <h3>Pojištění</h3>
+    <header th:replace="~{fragments/layout.html :: header}"></header>
+    <article>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <h3>Pojištění</h3>
+                </div>
+                <div class="col-6"></div>
             </div>
-            <div class="col-6"></div>
         </div>
-    </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3">
-                <p></p>
-            </div>
-            <div class="table-responsive-xl">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Druh Pojištění</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="insurance : ${insurance}">
-                        <td>
-                            <a th:href="@{/insurance/details/{insuranceId}(insuranceId=${insurance.insuranceID})}"
-                               th:text="${insurance.typeOfInsurance}"
-                               style="display: block; width: 100%; height: 100%; text-decoration: none; color: inherit;">
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-sm-3">
-                <p></p>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-5">
-                <p></p>
-            </div>
-            <div sec:authorize="hasRole('ADMIN')" class="col-lg-2 text-center">
-                <a type="button" class="btn btn-dark" th:href="@{/insurance/create}">Přidat</a>
-            </div>
-            <div class="col-lg-5">
-                <p></p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p></p>
+                </div>
+                <div class="table-responsive-xl">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Druh Pojištění</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="insurance : ${insurance}">
+                            <td>
+                                <a th:href="@{/insurance/details/{insuranceId}(insuranceId=${insurance.insuranceID})}"
+                                   th:text="${insurance.typeOfInsurance}"
+                                   style="display: block; width: 100%; height: 100%; text-decoration: none; color: inherit;">
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-3">
+                    <p></p>
+                </div>
             </div>
         </div>
-    </div>
-</article>
-<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5">
+                    <p></p>
+                </div>
+                <div sec:authorize="hasRole('ADMIN')" class="col-lg-2 text-center">
+                    <a type="button" class="btn btn-dark" th:href="@{/insurance/create}">Přidat</a>
+                </div>
+                <div class="col-lg-5">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>
 </html>

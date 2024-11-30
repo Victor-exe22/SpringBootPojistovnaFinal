@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="cs-cz" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="~{fragments/layout.html :: head}"></head>
-
 <body>
 <header th:replace="~{fragments/layout.html :: header}"></header>
-
 <div class="py-2 flash-message message-success" th:text="${success}" th:if="${success}"></div>
 <div class="py-2 flash-message message-error" th:if="${param.error}">Neplatný email nebo heslo.</div>
-
 <article>
     <div>
         <h3 class="mb-5">Přihlášení</h3>
-
         <section>
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
@@ -38,8 +34,6 @@
         </section>
     </div>
 </article>
-
 <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 </body>
-
 </html>

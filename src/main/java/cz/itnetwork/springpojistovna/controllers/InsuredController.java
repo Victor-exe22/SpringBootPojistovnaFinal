@@ -37,13 +37,13 @@ public class InsuredController {
         }
     }
 
-    @Secured("ROLE_ADMIN")
+
     @GetMapping("/create")
     public String renderCreateForm(@ModelAttribute InsuredDTO insuredDTO) {
         return "pages/insured/create";
     }
 
-    @Secured("ROLE_ADMIN")
+
     @PostMapping("/create")
     public String createInsured(
             @Valid @ModelAttribute InsuredDTO insured,
@@ -56,7 +56,7 @@ public class InsuredController {
         return "redirect:/insured";
     }
 
-    @Secured("ROLE_ADMIN")
+
     @GetMapping("/details/{insuredId}")
     public String renderDetails(@PathVariable long insuredId, Model model) {
         try {
@@ -71,7 +71,7 @@ public class InsuredController {
         }
     }
 
-    @Secured("ROLE_ADMIN")
+
     @GetMapping("edit/{insuredId}")
     public String renderEditForm(
             @PathVariable Long insuredId,
@@ -83,7 +83,7 @@ public class InsuredController {
         return "pages/insured/edit";
     }
 
-    @Secured("ROLE_ADMIN")
+
     @PostMapping("edit/{insuredId}")
     public String editInsured(
             @PathVariable long insuredId,
@@ -99,7 +99,7 @@ public class InsuredController {
         return "redirect:/insured";
     }
 
-    @Secured("ROLE_ADMIN")
+
     @GetMapping("delete/{insuredId}")
     public String deleteInsured(@PathVariable long insuredId) {
         insuredService.remove(insuredId);

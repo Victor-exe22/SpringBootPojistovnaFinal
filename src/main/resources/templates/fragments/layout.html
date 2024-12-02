@@ -15,7 +15,7 @@
             <nav>
                 <ul class="sidebar">
                     <li onclick=hideSidebar() ><a href="#" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-                    <li><a sec:authorize="hasRole('ADMIN')" class="nav-link text-white" th:href="@{/insured}">Pojištěnci</a></li>
+                    <li><a class="nav-link text-white" th:href="@{/insured}">Pojištěnci</a></li>
                     <li><a class="nav-link text-white" th:href="@{/insurance}">Pojištění</a></li>
                     <li><a class="nav-link text-white" th:href="@{/contact}">Kontakt</a></li>
                     <li sec:authorize="isAnonymous()"><a class="nav-link text-white" th:href="@{/account/login}">Přihlásit se</a></li>
@@ -27,7 +27,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="hideOnMobile"><a sec:authorize="hasRole('ADMIN')"  th:href="@{/insured}"><h5>Pojištěnci</h5></a></li>
+                    <li class="hideOnMobile"><a th:href="@{/insured}"><h5>Pojištěnci</h5></a></li>
                     <li class="hideOnMobile"><a  th:href="@{/insurance}"><h5>Pojištění</h5></a></li>
                     <li class="hideOnMobile"><a  th:href="@{/contact}"><h5>Kontakt</h5></a></li>
                     <li class="hideOnMobile" sec:authorize="isAnonymous()"><a  th:href="@{/account/login}"><h5>Přihlásit se</h5></a></li>
